@@ -2,7 +2,7 @@
 
 set -e
 
-. utils.sh
+. $(pwd)/utils.sh
 
 echo "Setting up configs"
 
@@ -51,6 +51,13 @@ toZprofile ""
 toZprofile "## Editor ##"
 toZprofile "export EDITOR='emacs -nw'"
 
+## Setup ly
+
+echo "Setup Ly"
+
+logExe "systemctl disable getty@tty1.service"
+logExe "systemctl enable ly@tty1.service"
+
 ## setup scripts
 
 echo "Setup scripts"
@@ -65,4 +72,6 @@ echo "### Config Setup Done ###"
 
 logExe "chown -r $user: $home/.config"
 logExe "chown -r $user: $home/scripts"
-logExe "chmod u+x $home/scripts/*.sh" 
+logExe "chmod u+x $home/scripts/*.sh"
+
+

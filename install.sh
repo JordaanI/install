@@ -4,7 +4,7 @@ set -e
 
 # Source Utils
 
-. utils.sh
+. $(pwd)/utils.sh
 
 # Update System
 
