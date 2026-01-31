@@ -17,7 +17,7 @@ install=$(pwd)
 
 ## Set root password
 
-logExe "Set root Password:"
+echo "Set root Password:"
 passwd
 
 ## Install yay
