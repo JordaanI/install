@@ -1,0 +1,17 @@
+1) Follow Preinstall
+   1.1) install arch
+   1.2) pacstrap base base-devel linux linux-firmware nano iwd git
+   2.1) chroot
+2) connect to internet
+   2.1) iwctl
+   2.2) edit conf
+   2.3) enable systemd-resolved
+   2.4) ln -s /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+3) Run installer
+   3.1) passwd root
+   3.2) create user
+   3.3) install yay
+   3.4) install stable packages
+4) Write Boot loader
+5) write configs
+6) reboot

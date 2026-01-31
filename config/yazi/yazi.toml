@@ -1,0 +1,21 @@
+[mgr]
+show_hidden = true
+ratio = [0, 2, 3]
+sort_by = "mtime"
+sort_dir_first = true
+linemode = "permissions"
+scrolloff = 200
+
+[preview]
+wrap = "yes"
+
+[opener]
+play = [
+  { run = "vlc %s", orphan = true, for = "unix" }
+]
+edit = [
+  { run = "$EDITOR %s", block = true, for = "unix" }
+]
+
+[input]
+cursor_blink = true

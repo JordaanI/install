@@ -1,0 +1,10 @@
+############################ Execute omnibar command (DICT_WORD)
+keymap  sd      COMMAND "SET_OPTION dictcommand=file:///cgi-bin/omnibar_duckduckgo.cgi ; DICT_WORD"
+keymap  sp      COMMAND "SET_OPTION dictcommand=file:///cgi-bin/omnibar_piratebay.cgi ; DICT_WORD"
+keymap  s1      COMMAND "SET_OPTION dictcommand=file:///cgi-bin/omnibar_1337x.cgi ; DICT_WORD"
+############################ Execute omnibar command for word at cursor (DICT_WORD_AT)
+keymap  sD      COMMAND "SET_OPTION dictcommand=file:///cgi-bin/omnibar_duckduckgo.cgi ; DICT_WORD_AT"
+
+############################ Send to deluge
+keymap ma      COMMAND "SET_OPTION dictcommand=file:///cgi-bin/magnet.cgi ; DICT_WORD_AT"
+

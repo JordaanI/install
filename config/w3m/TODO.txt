@@ -1,0 +1,1 @@
+link to ~/.w3m/* somehow
