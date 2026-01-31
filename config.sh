@@ -10,7 +10,7 @@ echo "Setting up configs"
 
 read -p "Enter desired username: " user
 
-logExe "useradd -m -G wheel --shell /bin/zsh $user"
+logExe "useradd -m -G wheel $user"
 echo "set password for user"
 logExe "passwd $user"
 
