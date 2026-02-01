@@ -10,7 +10,7 @@ echo "Setting up configs"
 
 read -p "Enter desired username: " user
 
-logExe "useradd -m -G wheel $user"
+logExe "useradd -m -G wheel --shell /bin/zsh $user"
 echo "set password for user"
 logExe "passwd $user"
 
@@ -80,7 +80,26 @@ logExe "chmod u+x $home/scripts/*.sh"
 
 logExe "sudo -u $user $home/scripts/build-wallpapers.sh"
 
+## Install Steam
 
-## Export User
+asUser () {
+    logExe "sudo -u $USER $1"
+}
 
-export USER="$user"
+## install yay
+
+. $(pwd)/utils.sh
+
+logExe "cd $home"
+asUser "git clone https://aur.archlinux.org/yay.git"
+logExe "cd yay"
+asUser "makepkg -si --noconfirm"
+logExe "cd $home"
+
+## Install steam
+
+asUser "yay -S steam-native-runtime"
+
+## Clean up
+
+logExe "$home/scripts/clean.sh"
