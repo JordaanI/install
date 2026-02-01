@@ -83,7 +83,7 @@ logExe "sudo -u $user $home/scripts/build-wallpapers.sh"
 ## Install Steam
 
 asUser () {
-    logExe "sudo -u $USER $1"
+    logExe "sudo -u $user $1"
 }
 
 ## install yay
