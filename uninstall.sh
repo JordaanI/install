@@ -30,10 +30,12 @@ fi
 packages=($(pacman -Qeq))
 essential=(base base-devel linux linux-firmware nano iwd git)
 
-for package in ${packages[@]:#}; do
+for package in ${packages[@]}; do
     echo "Checking for: $package"
     if [[ ! " ${essential[*]} " =~ " $package " ]]; then
-	echo "$package"
+	if [[ "$package" != *"ucode"*]]; then
+	    echo "$package"
+	fi
 	##pacman -Rns "$package" --noconfirm
     fi
 done
