@@ -78,7 +78,6 @@ logExe "chown -R $user: $home/.w3m"
 logExe "chown $user: $home/.zshenv"
 logExe "chmod u+x $home/scripts/*.sh"
 
-## Build wallpapers
+## Update Wallpapers
 
 logExe "sudo -u $user $home/scripts/build-wallpapers.sh"
-

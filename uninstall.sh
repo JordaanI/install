@@ -25,15 +25,9 @@ logExe "userdel -r $1"
 
 essential=(base base-devel linux linux-firmware nano iwd git)
 
-typeset -A keep
-
-for item in "${essential[@]}"; do
-    keep[$item]=1
-done
-
 for package in $(pacman -Qeq); do
     echo "Checking for: $package"
-    if [[ -z $keep[$package] ]]; then
+    if [[ ! " ${essential[*]} " =~ " $package " ]]; then
 	pacman -Rns "$package"
     fi
 done

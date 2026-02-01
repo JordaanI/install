@@ -24,7 +24,7 @@ download_wallpapers() {
             echo "Downloading $filename..."
             curl -L -o "$filepath" "$url"
         fi
-    done < urls
+    done < $HOME/scripts/urls
     
     # Cleanup files not in the list
     echo "Cleaning up files not in the list..."
