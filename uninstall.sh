@@ -33,8 +33,8 @@ essential=(base base-devel linux linux-firmware nano iwd git)
 for package in ${packages[@]}; do
     if [[ ! " ${essential[*]} " =~ " $package " ]]; then
 	if [[ "$package" != *"ucode"* ]]; then
-	    echo "removing $package"
+	    echo "Removing $package"
+	    pacman -Rns "$package" --noconfirm
 	fi
-	##pacman -Rns "$package" --noconfirm
     fi
 done
