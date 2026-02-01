@@ -19,8 +19,10 @@ fi
 
 ## remove user 
 
-if [ "$1" != "debug" ]; then
+if [ "$1" != "packages" ]; then
     logExe "userdel -r $1"
+else
+    echo "Only removing packages, use caution!"
 fi
 
 ## remove all installed packages
@@ -30,7 +32,7 @@ essential=(base base-devel linux linux-firmware nano iwd git)
 
 echo "$packages"
 
-for package in ${(@)packages:#*ucode*}; do
+for package in ${(@)packages:#}; do
     echo "Checking for: $package"
     if [[ ! " ${essential[*]} " =~ " $package " ]]; then
 	echo "$package"
