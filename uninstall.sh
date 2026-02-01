@@ -19,7 +19,9 @@ fi
 
 ## remove user 
 
-logExe "userdel -r $1"
+if [ "$1" != "debug" ]; then
+    logExe "userdel -r $1"
+fi
 
 ## remove all installed packages
 
