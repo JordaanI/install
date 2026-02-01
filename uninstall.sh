@@ -38,3 +38,14 @@ for package in ${packages[@]}; do
 	fi
     fi
 done
+
+## Remove anything thats left and clean caches
+
+logExe "pacman -Rns $(pacman -Qtdq) --noconfirm"
+logExe "pacman -Sc --noconfirm"
+
+## DONE
+
+echo "### DONE ###"
+echo ""
+
