@@ -2,7 +2,8 @@
 
 ./install.sh
 ./config.sh
-./clean.sh
+./steam.sh
+/home/$USER/scripts/clean.sh
 
 echo "######################################"
 echo "######################################"

@@ -1,5 +1,8 @@
 #!/bin/sh
 
+#Update system
+yay
+
 echo "Remove Orphans"
 pacman -Rns $(pacman -Qdtq)
 

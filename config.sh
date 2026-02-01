@@ -33,12 +33,12 @@ logExe "cp -r config/w3m $home/.w3m"
 
 echo "Setting up Zsh"
 echo "ZDOTDIR=$home/.config/zsh" > "$home/.zshenv"
-echo "source -- $ZDOTDIR/.zshenv" > "$home/.zshenv"
+echo "source -- $ZDOTDIR/.zshenv" >> "$home/.zshenv"
 zprofile="$home/.config/zsh/.zprofile"
 
 
 echo "Creating Profile"
-logExe "rm $zprofile"
+remove "$zprofile"
 logExe "touch $zprofile"
 
 toZprofile () {
@@ -70,8 +70,17 @@ echo "### Config Setup Done ###"
 
 ## Setting Permisisons
 
-logExe "chown -r $user: $home/.config"
-logExe "chown -r $user: $home/scripts"
+logExe "chown -R $user: $home/.config"
+logExe "chown -R $user: $home/scripts"
+logExe "chown -R $user: $home/.w3m"
+logExe "chown $user: $home/.zshenv"
 logExe "chmod u+x $home/scripts/*.sh"
 
+## Build wallpapers
 
+logExe "sudo -u $user $home/scripts/build-wallpapers.sh"
+
+
+## Export User
+
+export USER="$user"
