@@ -28,7 +28,7 @@ fi
 ## remove all installed packages
 
 packages=($(pacman -Qeq))
-essential=(base base-devel linux linux-firmware nano iwd git)
+essential=(base base-devel linux linux-firmware nano iwd git efibootmgr)
 
 for package in ${packages[@]}; do
     if [[ ! " ${essential[*]} " =~ " $package " ]]; then
