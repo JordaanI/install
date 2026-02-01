@@ -32,7 +32,7 @@ essential=(base base-devel linux linux-firmware nano iwd git)
 
 echo "$packages"
 
-for package in ${(@)packages:#}; do
+for package in ${packages:#}; do
     echo "Checking for: $package"
     if [[ ! " ${essential[*]} " =~ " $package " ]]; then
 	echo "$package"
