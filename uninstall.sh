@@ -26,7 +26,9 @@ logExe "userdel -r $1"
 packages=($(pacman -Qeq))
 essential=(base base-devel linux linux-firmware nano iwd git)
 
-for package in "${(@)packages:#*ucode*}"; do
+echo "$packages"
+
+for package in ${(@)packages:#*ucode*}; do
     echo "Checking for: $package"
     if [[ ! " ${essential[*]} " =~ " $package " ]]; then
 	echo "$package"
