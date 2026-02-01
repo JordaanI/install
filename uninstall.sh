@@ -22,3 +22,17 @@ fi
 logExe "userdel -r $1"
 
 ## remove all installed packages
+
+essential=(base base-devel linux linux-firmware nano iwd git)
+
+typeset -A keep
+
+for item in "${essential[@]}"; do
+    keep[$item]=1
+done
+
+for package in $(pacman -Qeq); do
+    if [[ -z $keep[$package] ]]; then
+	pacman -Rns "$package"
+    fi
+done

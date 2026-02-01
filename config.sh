@@ -31,9 +31,11 @@ logExe "cp -r config/w3m $home/.w3m"
 
 ## Setup zsh
 
+DOTDIR="$home/.config/zsh"
+
 echo "Setting up Zsh"
-echo "ZDOTDIR=$home/.config/zsh" > "$home/.zshenv"
-echo "source -- $ZDOTDIR/.zshenv" >> "$home/.zshenv"
+echo "ZDOTDIR=$DOTDIR" > "$home/.zshenv"
+echo "source -- $DOTDIR/.zshenv" >> "$home/.zshenv"
 zprofile="$home/.config/zsh/.zprofile"
 
 
@@ -80,26 +82,3 @@ logExe "chmod u+x $home/scripts/*.sh"
 
 logExe "sudo -u $user $home/scripts/build-wallpapers.sh"
 
-## Install Steam
-
-asUser () {
-    logExe "sudo -u $user $1"
-}
-
-## install yay
-
-. $(pwd)/utils.sh
-
-logExe "cd $home"
-asUser "git clone https://aur.archlinux.org/yay.git"
-logExe "cd yay"
-asUser "makepkg -si --noconfirm"
-logExe "cd $home"
-
-## Install steam
-
-asUser "yay -S steam-native-runtime"
-
-## Clean up
-
-logExe "$home/scripts/clean.sh"

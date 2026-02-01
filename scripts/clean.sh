@@ -1,10 +1,10 @@
 #!/bin/sh
 
 #Update system
-yay
+pacman -Syu --noconfirm
 
 echo "Remove Orphans"
-pacman -Rns $(pacman -Qdtq)
+pacman -Rns $(pacman -Qtdq)
 
 echo "Clean Caches"
 yay -Sc
