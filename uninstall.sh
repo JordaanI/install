@@ -23,11 +23,13 @@ logExe "userdel -r $1"
 
 ## remove all installed packages
 
+packages=($(pacman -Qeq))
 essential=(base base-devel linux linux-firmware nano iwd git)
 
-for package in $(pacman -Qeq); do
+for package in "${(@)packages:#*ucode*}"; do
     echo "Checking for: $package"
     if [[ ! " ${essential[*]} " =~ " $package " ]]; then
-	pacman -Rns "$package"
+	echo "$package"
+	##pacman -Rns "$package" --noconfirm
     fi
 done
