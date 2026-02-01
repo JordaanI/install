@@ -32,6 +32,7 @@ for item in "${essential[@]}"; do
 done
 
 for package in $(pacman -Qeq); do
+    echo "Checking for: $package"
     if [[ -z $keep[$package] ]]; then
 	pacman -Rns "$package"
     fi
