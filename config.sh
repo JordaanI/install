@@ -13,7 +13,7 @@ echo "Setting up configs"
 user=$(<"$install/user")
 password=$(<"$install/password")
 logExe "useradd -m -G wheel --shell /bin/zsh $user"
-logExe "yes $password | passwd"
+logExe "yes $password | passwd $user" 
 
 ## Pakcage configs
 
@@ -46,7 +46,8 @@ logExe "touch $zprofile"
 toZprofile () {
     echo "$1"
     echo "$1" >> "$zprofile"
- }
+}
+
 toZprofile "## Path Expansions ##"
 toZprofile "export PATH=$PATH:$home/scripts"
 toZprofile ""
