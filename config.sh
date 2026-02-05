@@ -13,7 +13,7 @@ echo "Setting up configs"
 user=$(<"$install/user")
 password=$(<"$install/password")
 logExe "useradd -m -G wheel --shell /bin/zsh $user"
-logExe "yes $password | passwd $user" 
+logExe "echo $user:$password | chpasswd"
 
 ## Pakcage configs
 
