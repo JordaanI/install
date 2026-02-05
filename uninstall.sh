@@ -12,7 +12,7 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-if [ "$1" == "root" ]; then
+if [[ "$1" == "root" ]]; then
     echo "lmao"
     exit 1
 fi    
