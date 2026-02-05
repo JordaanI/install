@@ -1,5 +1,7 @@
 #!/bin/sh
 
+install="$(pwd)"
+
 set -e
 
 . $(pwd)/utils.sh
@@ -8,15 +10,13 @@ echo "Setting up configs"
 
 ## Create user
 
-read -p "Enter desired username: " user
-
+user=$(<"$install/user")
+password=$(<"$install/password")
 logExe "useradd -m -G wheel --shell /bin/zsh $user"
-echo "set password for user"
-logExe "passwd $user"
+logExe "yes $password | passwd"
 
 ## Pakcage configs
 
-this=$(pwd)
 home="/home/$user"
 
 echo "Setup package configs"

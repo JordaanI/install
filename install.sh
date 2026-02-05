@@ -1,24 +1,25 @@
-#!/bin/sh
+#!/bin/env zsh
 
 set -e
 
+install=$(pwd)
+
 # Source Utils
 
-. $(pwd)/utils.sh
+. "$install/utils.sh"
 
 # Update System
 
 echo "Updating System"
-pacman -Syu --noconfirm
+logExe "pacman -Syu --noconfirm"
 
 #install Dir
 
-install=$(pwd)
-
 ## Set root password
 
-echo "Set root Password:"
-passwd
+echo "Setting Root Password"
+password=$(<"$install/password")
+logExe "yes $password | passwd"
 
 ## Install stable packages
 
@@ -30,7 +31,7 @@ cd $install
 
 while read package; do
     logExe "pacman -S $package --noconfirm"
-done < $(pwd)/stable
+done < "$install/stable"
 
 echo "##### DONE #####"
 echo ""

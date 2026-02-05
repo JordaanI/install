@@ -1,6 +1,6 @@
 1) Follow Preinstall
    1.1) install arch
-   1.2) pacstrap base base-devel linux linux-firmware nano iwd git
+   1.2) pacstrap base base-devel linux linux-firmware nano iwd git zsh
    2.1) chroot
 2) connect to internet
    2.1) iwctl
