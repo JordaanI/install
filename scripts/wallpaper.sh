@@ -1,14 +1,16 @@
-#!/bin/sh
+#!/bin/env zsh
 
-# Sets a random wallpaper with hyprpaper
+directory=~/.wallpapers
+monitor=$(hyprctl monitors | grep Monitor | awk '{print $2}')
 
-sleep 1
-wallpapers=($(ls $HOME/.wallpapers))
-
-wall=${wallpapers[ $RANDOM % ${#wallpapers[@]} ]}
-path="$HOME/.wallpapers/$wall"
-echo "$path" > $HOME/.wallpaper
-
-hyprctl hyprpaper unload all
-hyprctl hyprpaper preload "$path"
-hyprctl hyprpaper wallpaper ",$path"
+if [ -d "$directory" ]; then
+	 while true; do
+	     random_background=$(ls $directory/*.{jpg,png} | shuf -n 1)
+	     
+	     hyprctl hyprpaper unload all
+	     hyprctl hyprpaper preload "$random_background"
+	     hyprctl hyprpaper wallpaper "$monitor, $random_background"
+	     
+	     sleep 900
+	 done
+fi
