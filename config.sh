@@ -12,7 +12,15 @@ echo "Setting up configs"
 
 user=$(<"$install/user")
 password=$(<"$install/password")
-logExe "useradd -m -G wheel --shell /bin/zsh $user"
+
+if id "$user" >/dev/null 2>&1; then
+    echo 'User $user already exists'
+    echo "removing home"
+    logExe "rm -rf /home/$user/*"
+else
+    logExe "useradd -m -G wheel --shell /bin/zsh $user"
+fi
+
 logExe "echo $user:$password | chpasswd"
 
 ## Pakcage configs
