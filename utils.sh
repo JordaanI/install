@@ -64,5 +64,3 @@ done
 
 ### Tests
 
-echo "$(pwd)"
-writeOutVar "test" "$(pwd)"
