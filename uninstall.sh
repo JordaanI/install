@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/env zsh
 
 . $(pwd)/utils.sh
 
