@@ -2,6 +2,8 @@
 
 . $(pwd)/utils.sh
 
+set -e
+
 if [ $(whoami) != "root" ]; then
     echo "Root only"
     exit 1
