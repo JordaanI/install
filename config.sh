@@ -69,6 +69,10 @@ echo "Setup Ly"
 logExe "systemctl disable getty@tty1.service"
 logExe "systemctl enable ly@tty1.service"
 
+## Setup Bluetooth
+
+logExe "systemctl enable bluetooth"
+
 ## setup scripts
 
 echo "Setup scripts"
