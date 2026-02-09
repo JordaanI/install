@@ -23,12 +23,15 @@ noto-fonts
 openssh
 pacman-contrib
 pipewire
+pipewire-audio
 sudo
 tldr
 tmux
 vlc
 w3m
 waybar
+wiremix
+wireplumber
 wget
 yazi
 yt-dlp
