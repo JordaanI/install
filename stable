@@ -24,6 +24,7 @@ openssh
 pacman-contrib
 pipewire
 pipewire-audio
+pipewire-pulse
 sudo
 tldr
 tmux
